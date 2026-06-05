@@ -1,0 +1,91 @@
+<!--
+  FEHLER 6: Der Header ist mit position: fixed oben fixiert.
+  Die Todo-Liste hat kein margin-top – die ersten Einträge sind verdeckt.
+-->
+<header class="add-container">
+  <h1 class="app-title">Todo App</h1>
+
+  <div class="input-row">
+    <input
+      type="text"
+      class="input-field"
+      [(ngModel)]="newTitle"
+      placeholder="Neues Todo hinzufügen..."
+    />
+
+    <!-- FEHLER 8: Rohes <input type="date"> – keine CSS-Klassen, kein Padding, kein Border-Radius -->
+    <input type="date" [(ngModel)]="newDueDate" />
+
+    <!-- FEHLER 9: Nacktes <select> – kein Margin, kein Styling, direkt neben andere Elemente gequetscht -->
+    <select [(ngModel)]="newPriority">
+      <option value="low">Niedrig</option>
+      <option value="medium">Mittel</option>
+      <option value="high">Hoch</option>
+    </select>
+
+    <button class="btn btn-primary" (click)="addTodo()">Hinzufügen</button>
+  </div>
+
+  <div class="filter-tabs">
+    <button
+      class="tab-btn"
+      [class.tab-active]="activeFilter === 'all'"
+      (click)="activeFilter = 'all'"
+    >
+      Alle
+    </button>
+    <button
+      class="tab-btn"
+      [class.tab-active]="activeFilter === 'active'"
+      (click)="activeFilter = 'active'"
+    >
+      Aktiv
+    </button>
+    <button
+      class="tab-btn"
+      [class.tab-active]="activeFilter === 'done'"
+      (click)="activeFilter = 'done'"
+    >
+      Erledigt
+    </button>
+  </div>
+</header>
+
+<!-- FEHLER 6: Kein margin-top – Liste startet direkt am Seitenanfang und wird vom Header verdeckt -->
+<ul class="todo-list">
+  <li
+    *ngFor="let todo of filteredTodos; let i = index"
+    class="todo-item"
+    [class.todo-done]="todo.done"
+  >
+    <input
+      type="checkbox"
+      class="todo-checkbox"
+      [checked]="todo.done"
+      (change)="todoService.toggle(i)"
+    />
+
+    <!--
+      FEHLER 5: white-space: nowrap im CSS verhindert Zeilenumbruch.
+      Langer Text scrollt auf Mobilgeräten horizontal aus dem Viewport.
+    -->
+    <span class="todo-title">{{ todo.title }}</span>
+
+    <span class="priority-badge priority-{{ todo.priority }}">
+      {{ todo.priority }}
+    </span>
+
+    <span class="due-date">{{ todo.dueDate }}</span>
+
+    <!--
+      FEHLER 7: Auf kleinen Viewports verschiebt der Button sich per
+      position: absolute über den Todo-Text (siehe Media Query im CSS).
+    -->
+    <button class="btn btn-danger" (click)="todoService.delete(i)">
+      Löschen
+    </button>
+  </li>
+</ul>
+
+<!-- FEHLER 10: Völlig rohes <button>-Element – keine Farbe, keine Schriftart, kein Cursor, Retro-Look -->
+<button (click)="todoService.clearAll()">Liste leeren</button>
