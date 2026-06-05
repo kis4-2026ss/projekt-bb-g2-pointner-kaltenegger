@@ -28,12 +28,10 @@ export class TodoService {
     this.todos.push(todo);
   }
 
-  // FEHLER 1: Ignoriert den Index und löscht immer das letzte Todo in der Liste
   delete(index: number): void {
     this.todos.splice(this.todos.length - 1, 1);
   }
 
-  // FEHLER 2: Schaltet den Status ALLER Todos um, nicht nur des geklickten
   toggle(index: number): void {
     this.todos.forEach(todo => (todo.done = !todo.done));
   }

@@ -19,7 +19,6 @@ export class AppComponent {
 
   constructor(public todoService: TodoService) {}
 
-  // FEHLER 3: Keine Validierung – leere oder reine Leerzeichen-Todos werden gespeichert
   addTodo(): void {
     this.todoService.add({
       title: this.newTitle,
@@ -32,7 +31,6 @@ export class AppComponent {
     this.newPriority = 'medium';
   }
 
-  // FEHLER 4: Filterlogik ist vertauscht – "Erledigt" zeigt aktive, "Aktiv" zeigt erledigte
   get filteredTodos(): Todo[] {
     const all = this.todoService.todos;
     if (this.activeFilter === 'done') return all.filter(t => !t.done);
