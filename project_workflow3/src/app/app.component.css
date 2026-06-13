@@ -14,15 +14,21 @@ body {
   text-align: right;
 }
 
+/* Header standardmäßig oben, aber nicht zwingend fixed */
 .add-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
   background: #ffffff;
   padding: 20px 24px 14px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  width: 100%;
+}
+
+@media (min-width: 601px) {
+  .add-container {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+  }
+  .header-spacer { display: block; height: 160px; }
 }
 
 .app-title {
@@ -32,6 +38,15 @@ body {
   color: #1a1a2e;
 }
 
+/* Konsistentes Styling für alle Inputs */
+input[type="date"], select {
+  padding: 10px 14px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+}
 
 .input-row {
   display: flex;

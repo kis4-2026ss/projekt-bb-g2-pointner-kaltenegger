@@ -1,22 +1,13 @@
 <header class="add-container">
   <h1 class="app-title">Todo App</h1>
-
   <div class="input-row">
-    <input
-      type="text"
-      class="input-field"
-      [(ngModel)]="newTitle"
-      placeholder="Neues Todo hinzufügen..."
-    />
-
-    <input type="date" [(ngModel)]="newDueDate" />
-
-    <select [(ngModel)]="newPriority">
+    <input type="text" class="input-field" [(ngModel)]="newTitle" placeholder="Neues Todo..." />
+    <input type="date" class="input-field" [(ngModel)]="newDueDate" />
+    <select class="input-field" [(ngModel)]="newPriority">
       <option value="low">Niedrig</option>
       <option value="medium">Mittel</option>
       <option value="high">Hoch</option>
     </select>
-
     <button class="btn btn-primary" (click)="addTodo()">Hinzufügen</button>
   </div>
 

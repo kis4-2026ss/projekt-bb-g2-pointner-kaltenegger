@@ -20,12 +20,20 @@ export class AppComponent {
   constructor(public todoService: TodoService) {}
 
   addTodo(): void {
+    // Validierung
+    if (!this.newTitle || this.newTitle.trim().length === 0) {
+      alert('Bitte gib einen Titel für das Todo ein.');
+      return;
+    }
+
     this.todoService.add({
-      title: this.newTitle,
-      dueDate: this.newDueDate,
+      title: this.newTitle.trim(),
+      dueDate: this.newDueDate || new Date().toISOString().split('T')[0], // Fallback auf heute
       priority: this.newPriority,
       done: false,
     });
+    
+    // Reset
     this.newTitle = '';
     this.newDueDate = '';
     this.newPriority = 'medium';
