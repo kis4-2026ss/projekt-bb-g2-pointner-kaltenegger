@@ -45,31 +45,36 @@
   </div>
 </header>
 
-<ul class="todo-list">
-  <li
-    *ngFor="let todo of filteredTodos; let i = index"
-    class="todo-item"
-    [class.todo-done]="todo.done"
-  >
-    <input
-      type="checkbox"
-      class="todo-checkbox"
-      [checked]="todo.done"
-      (change)="todoService.toggle(i)"
-    />
+<!-- Liste in einen Container, um Abstand zu wahren -->
+<main style="padding: 20px;">
+  <ul class="todo-list">
+    <li
+      *ngFor="let todo of filteredTodos; let i = index"
+      class="todo-item"
+      [class.todo-done]="todo.done"
+    >
+      <input
+        type="checkbox"
+        class="todo-checkbox"
+        [checked]="todo.done"
+        (change)="todoService.toggle(i)"
+      />
 
-    <span class="todo-title">{{ todo.title }}</span>
+      <span class="todo-title">{{ todo.title }}</span>
 
-    <span class="priority-badge priority-{{ todo.priority }}">
-      {{ todo.priority }}
-    </span>
+      <span class="priority-badge priority-{{ todo.priority }}">
+        {{ todo.priority }}
+      </span>
 
-    <span class="due-date">{{ todo.dueDate }}</span>
+      <span class="due-date">{{ todo.dueDate }}</span>
 
-    <button class="btn btn-danger" (click)="todoService.delete(i)">
-      Löschen
-    </button>
-  </li>
-</ul>
+      <button class="btn btn-danger" (click)="todoService.delete(i)">
+        Löschen
+      </button>
+    </li>
+  </ul>
 
-<button (click)="todoService.clearAll()">Liste leeren</button>
+  <div class="footer-actions">
+    <button class="btn btn-danger" (click)="todoService.clearAll()">Liste leeren</button>
+  </div>
+</main>

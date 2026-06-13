@@ -29,14 +29,16 @@ export class TodoService {
   }
 
   delete(index: number): void {
-    this.todos.splice(this.todos.length - 1, 1);
+    // Korrekt: Entfernt das Element am spezifischen Index
+    this.todos.splice(index, 1);
   }
 
   toggle(index: number): void {
-    this.todos.forEach(todo => (todo.done = !todo.done));
+    // Korrekt: Toggelt nur das spezifische Element
+    this.todos[index].done = !this.todos[index].done;
   }
 
   clearAll(): void {
-    this.todos = [];
+    this.todos.length = 0; // Referenz beibehalten
   }
 }

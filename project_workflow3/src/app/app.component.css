@@ -1,4 +1,13 @@
+/* Padding am Body, um Überdeckung durch den Fixed-Header zu verhindern */
+body {
+  padding-top: 160px; /* An Höhe des Headers anpassen */
+}
 
+/* Button "Liste leeren" besser integrieren */
+.footer-actions {
+  padding: 20px;
+  text-align: right;
+}
 
 .add-container {
   position: fixed;
