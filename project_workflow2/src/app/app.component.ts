@@ -20,8 +20,10 @@ export class AppComponent {
   constructor(public todoService: TodoService) {}
 
   addTodo(): void {
+    if (!this.newTitle.trim()) return;
+
     this.todoService.add({
-      title: this.newTitle,
+      title: this.newTitle.trim(),
       dueDate: this.newDueDate,
       priority: this.newPriority,
       done: false,
@@ -33,8 +35,8 @@ export class AppComponent {
 
   get filteredTodos(): Todo[] {
     const all = this.todoService.todos;
-    if (this.activeFilter === 'done') return all.filter(t => !t.done);
-    if (this.activeFilter === 'active') return all.filter(t => t.done);
+    if (this.activeFilter === 'done') return all.filter(t => t.done);
+    if (this.activeFilter === 'active') return all.filter(t => !t.done);
     return all;
   }
 }

@@ -29,11 +29,11 @@ export class TodoService {
   }
 
   delete(index: number): void {
-    this.todos.splice(this.todos.length - 1, 1);
+    this.todos.splice(index, 1);
   }
 
   toggle(index: number): void {
-    this.todos.forEach(todo => (todo.done = !todo.done));
+    this.todos[index].done = !this.todos[index].done;
   }
 
   clearAll(): void {

@@ -26,8 +26,9 @@
   margin-bottom: 14px;
 }
 
-.input-field {
-  flex: 1;
+.input-field,
+input[type="date"],
+select {
   padding: 10px 14px;
   border: 1.5px solid #d1d5db;
   border-radius: 8px;
@@ -37,8 +38,34 @@
   transition: border-color 0.2s;
 }
 
-.input-field:focus {
+.input-field:focus,
+input[type="date"]:focus,
+select:focus {
   border-color: #6366f1;
+}
+
+.input-field {
+  flex: 1;
+}
+
+@media (max-width: 520px) {
+  .input-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .input-field {
+    flex: 1 1 100%;
+  }
+
+  input[type="date"],
+  select {
+    flex: 1 1 calc(50% - 4px);
+  }
+
+  .btn-primary {
+    flex: 1 1 100%;
+  }
 }
 
 
@@ -86,10 +113,14 @@
   border-color: #6366f1;
 }
 
+.content-container {
+  padding: 160px 20px 20px;
+}
+
 .todo-list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 20px;
 }
 
 .todo-item {
@@ -114,10 +145,10 @@
 }
 
 .todo-title {
-  white-space: nowrap;
   font-size: 0.95rem;
   color: #374151;
   flex: 1;
+  word-break: break-word;
 }
 
 .priority-badge {
@@ -169,16 +200,32 @@
   background: #dc2626;
 }
 
+.clear-btn {
+  margin-top: 10px;
+}
+
 @media (max-width: 520px) {
   .todo-item {
-    position: relative;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .todo-checkbox {
+    order: 0;
   }
 
+  .todo-title {
+    order: 1;
+    flex: 1 1 100%;
+  }
+
+  .priority-badge,
+  .due-date {
+    order: 2;
+  }
+  
   .btn-danger {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 30px;
-    z-index: 1;
+    order: 3;
+    width: 100%;
   }
 }

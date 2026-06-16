@@ -1,0 +1,106 @@
+
+# Workflow 1 – Testdokumentation
+
+## Testbedingungen
+Es wurde Gemini Cli verwendet zum durchführen. Als Modell kam Gemini 3.1 Flash Lite zum Einsatz. Das Denk-Level wurde auf Medium gesetzt, um einen praxisnahen Kompromiss zwischen Antwortqualität und Geschwindigkeit zu erhalten.
+
+---
+
+## 1. Iteration
+
+### Prompt
+>Du bist ein Senior Software Engineer. Deine Aufgabe ist es, Fehler in diesem Frontend-Projekt systematisch zu beheben. \
+>Fokussiere dich auf: \
+>Logik-/Laufzeitfehler. \
+>Layout- und Responsive-Fehler. \
+>Unfertige oder unbenutzbare UI-Komponenten. \
+>\
+> Sei präzise, effizient und schreibe wartbaren Code.
+
+### Kontext
+
+Kompletter `src/`-Ordner. Zu diesem Zeitpunkt wurden noch keine Änderungen am Code vorgenommen und es waren keine TODO-Einträge vorhanden.
+
+![App vor der ersten Iteration](./pics/workflow1_before_first_ite.png)
+
+### Ergebnis
+
+- Zeit bis zur Antwort: **1 Minute**
+- Gesamtzeit inklusive Implementierung und Test: **1 Minuten**
+
+![App nach der ersten Iteration](./pics/workflow_1_after_first_it.png)
+
+Im Screenshot ist zu erkennen dass direkt testeinträge erstellt worden sind. Weiters sieht man dass die optischen Fehler/Mängel nicht behoben wurden, alle Buttons oder Selektoren sind noch nicht richtig. Es wurde auch ein npm install und npm run build durchgeführt
+
+![Kleiner Bildschirm](./pics/workflow1_after_first_it_small_screen.png)
+![Langer Text](./pics/workflow1_after_first_it_too_long_text.png)
+
+![Fehlermeldung](./pics/workflow1_error.png)
+
+---
+
+## 2. Iteration
+
+### Prompt
+>Es gibt immer noch massive Probleme mit dem Layout siehe Bilder im Anhang. Zu dem sind auch manche Elemente nicht gestyled und erst ca. ab den vierten
+TODO-Eintrag sieht man diesen.
+
+### Anhang
+
+Kompletter `src/`-Ordner.
+
+### Ergebnis
+
+- Zeit bis zur Antwort: **20 Sekunden**
+- Gesamtzeit inklusive Implementierung und Test: **20 Sekunden**
+
+Das Modell konnte endlich den Liste-Leeren Button fixen Die Anwendung ist nun deutlich besser nutzbar. Auch sehr lange Texte führen nicht mehr dazu, dass einzelne Komponenten eines TODO-Eintrags aus dem sichtbaren Bereich verschoben werden. Der Kleine Screen funktioniert nun fast richtig. Es wurde auch ein npm install und npm run build durchgeführt
+
+Der Header überlappt die Inhalte nicht mehr. Allerdings ist bei kleineren Bildschirmgrößen weiterhin ein Teil des ersten TODO-Eintrags abgeschnitten.
+
+![Nach der zweiten Iteration](./pics/workflow_1_after_second_iteration.png)
+![Kleiner Bildschirm nach der zweiten Iteration](./pics/workflow_1_after_second_it_small_screen.png)
+![Langer Text nach der zweiten Iteration](./pics/workflow_1_after_second_it_too_long_text.png)
+
+![Fehlermeldung nach der zweiten Iteration](./pics/workflow_1_after_second_error.png)
+
+---
+
+## 3. Iteration
+
+### Prompt
+ >Das sieht jetzt schon viel besser aus. Jedoch wenn der Bildschirm klein wird, dann ist immer noch der Hinzufügen button aus dem bild. Zudem ist es möglich TODO's ohne Text oder mit nur Leerzeichen anzulegen! Suche im Code noch nach ungestylten Elementen.
+
+### Anhang
+
+Kompletter `src/`-Ordner.
+
+### Ergebnis
+
+- Zeit bis zur Antwort: **25 Sekunden**
+- Gesamtzeit inklusive Implementierung und Test: **25 Sekunden**
+
+Alle bekannten Fehler sowie die festgestellten UI-Probleme wurden behoben. Damit kann diese Version als finales Ergebnis des Versuchs betrachtet werden.
+
+![Nach der dritten Iteration](./pics/workflow_1_after_third_it.png)
+
+![Kleiner Bildschirm nach der dritten Iteration](./pics/workflow_1_after_third_it_small_screen.png)
+
+Ebenfalls wird verhindert, dass ein TODO mit einem leeren oder nur aus Leerzeichen bestehenden Titel erstellt wird. 
+
+![Fehlermeldung nach der dritten Iteration](./pics/workflow_1_after_third_it_error.png)
+
+---
+
+## Gesamtergebnis und Schlussfolgerung
+
+Alle identifizierten Fehler konnten letztlich erfolgreich erkannt und behoben werden. Es war recht einfach zu überprüfen, weil hier sogar ein npm install und npm run build gemacht wurde. Man musste nur in den Browser wechseln und testen. Dadurch ging das ganze sehr schnell und man brauchte eig länger zum testen als eine neue Version zu erstellen
+
+Es war aber recht deutlich dass es die UI-Probleme mit den ungestylten Elementen nicht erkannte, wodurch es genauer definiert werden musste.
+
+### Tokenverbrauch:
+
+![Token-Verbrauch](./pics/workflow_1_token_usage.png)
+
+### Gesamtzeit:
+ca. 4 Minuten
