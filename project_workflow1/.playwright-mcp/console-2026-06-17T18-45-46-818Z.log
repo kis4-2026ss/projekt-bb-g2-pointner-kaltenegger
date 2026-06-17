@@ -1,0 +1,27 @@
+[     408ms] [LOG] Angular is running in development mode. @ http://localhost:4201/@fs/C:/Fh-OOE/SEM4-5/kis4/projekt-bb-g2-pointner-kaltenegger/project_workflow1/.angular/cache/17.3.17/vite/deps/chunk-OF23TSPQ.js?v=2eea25bd:19908
+[   18280ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:4201/@vite/client:553
+[   20629ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[   23981ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[   27343ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[   30686ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[   34026ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[   37366ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[   40706ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[   44045ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[   47385ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[   50738ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[   54091ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[   57432ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[   60798ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[   64137ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[   67477ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[   70816ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[   74158ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[   77510ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[   80863ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[   84218ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[   87568ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[   90895ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[   94235ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[   97574ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0
+[  100908ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:4201/:0

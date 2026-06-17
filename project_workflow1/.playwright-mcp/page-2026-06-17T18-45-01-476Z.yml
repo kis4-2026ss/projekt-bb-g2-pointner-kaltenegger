@@ -1,0 +1,35 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - heading "Todo App" [level=1] [ref=e4]
+    - textbox "Neues Todo hinzufügen..." [ref=e6]
+    - generic [ref=e7]:
+      - textbox [ref=e8]
+      - combobox [ref=e9]:
+        - option "Niedrig"
+        - option "Mittel" [selected]
+        - option "Hoch"
+      - button "Hinzufügen" [ref=e10] [cursor=pointer]
+    - generic [ref=e11]:
+      - button "Alle" [ref=e12] [cursor=pointer]
+      - button "Aktiv" [ref=e13] [cursor=pointer]
+      - button "Erledigt" [ref=e14] [cursor=pointer]
+  - list [ref=e15]:
+    - listitem [ref=e16]:
+      - checkbox [ref=e17] [cursor=pointer]
+      - generic [ref=e18]: Angular-Dokumentation lesen
+      - generic [ref=e19]: high
+      - generic [ref=e20]: 2026-06-10
+      - button "Löschen" [ref=e21] [cursor=pointer]
+    - listitem [ref=e22]:
+      - checkbox [checked] [ref=e23] [cursor=pointer]
+      - generic [ref=e24]: Wocheneinkauf erledigen
+      - generic [ref=e25]: low
+      - generic [ref=e26]: 2026-06-07
+      - button "Löschen" [ref=e27] [cursor=pointer]
+    - listitem [ref=e28]:
+      - checkbox [ref=e29] [cursor=pointer]
+      - generic [ref=e30]: Sport machen
+      - generic [ref=e31]: medium
+      - generic [ref=e32]: 2026-06-08
+      - button "Löschen" [ref=e33] [cursor=pointer]
+  - button "Liste leeren" [ref=e34] [cursor=pointer]

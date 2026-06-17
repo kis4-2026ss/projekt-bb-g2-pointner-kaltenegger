@@ -1,0 +1,23 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - heading "Todo App" [level=1] [ref=e4]
+    - generic [ref=e5]:
+      - textbox "Neues Todo hinzufügen..." [ref=e6]
+      - textbox [ref=e7]
+      - combobox [ref=e8]:
+        - option "Niedrig"
+        - option "Mittel" [selected]
+        - option "Hoch"
+      - button "Hinzufügen" [ref=e9] [cursor=pointer]
+    - generic [ref=e10]:
+      - button "Alle" [ref=e11] [cursor=pointer]
+      - button "Aktiv" [ref=e12] [cursor=pointer]
+      - button "Erledigt" [active] [ref=e13] [cursor=pointer]
+  - list [ref=e14]:
+    - listitem [ref=e34]:
+      - checkbox [checked] [ref=e35] [cursor=pointer]
+      - generic [ref=e36]: Wocheneinkauf erledigen
+      - generic [ref=e37]: low
+      - generic [ref=e38]: 2026-06-07
+      - button "Löschen" [ref=e39] [cursor=pointer]
+  - button "Liste leeren" [ref=e33]

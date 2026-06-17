@@ -20,6 +20,10 @@ export class AppComponent {
   constructor(public todoService: TodoService) {}
 
   addTodo(): void {
+    if (!this.newTitle.trim()) {
+      alert('Bitte geben Sie einen Todo-Titel ein.');
+      return;
+    }
     this.todoService.add({
       title: this.newTitle,
       dueDate: this.newDueDate,
@@ -33,8 +37,12 @@ export class AppComponent {
 
   get filteredTodos(): Todo[] {
     const all = this.todoService.todos;
-    if (this.activeFilter === 'done') return all.filter(t => !t.done);
-    if (this.activeFilter === 'active') return all.filter(t => t.done);
+    if (this.activeFilter === 'done') return all.filter(t => t.done);
+    if (this.activeFilter === 'active') return all.filter(t => !t.done);
     return all;
+  }
+
+  trackById(index: number, todo: Todo): number {
+    return todo.id;
   }
 }
