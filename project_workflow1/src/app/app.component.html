@@ -1,55 +1,54 @@
-<div class="app-wrapper">
-  <header class="add-container">
-    <h1 class="app-title">Todo App</h1>
+<header class="add-container">
+  <h1 class="app-title">Todo App</h1>
 
-    <div class="input-row">
-      <input
-        type="text"
-        class="input-field"
-        [(ngModel)]="newTitle"
-        placeholder="Neues Todo hinzufügen..."
-      />
-    </div>
-    <div class="input-row">
-      <input type="date" class="input-field" [(ngModel)]="newDueDate" />
+  <div class="input-row">
+    <input
+      type="text"
+      class="input-field"
+      [(ngModel)]="newTitle"
+      placeholder="Neues Todo hinzufügen..."
+    />
 
-      <select class="input-field" [(ngModel)]="newPriority">
-        <option value="low">Niedrig</option>
-        <option value="medium">Mittel</option>
-        <option value="high">Hoch</option>
-      </select>
+    <input type="date" [(ngModel)]="newDueDate" />
 
-      <button class="btn btn-primary" (click)="addTodo()">Hinzufügen</button>
-    </div>
+    <select [(ngModel)]="newPriority">
+      <option value="low">Niedrig</option>
+      <option value="medium">Mittel</option>
+      <option value="high">Hoch</option>
+    </select>
 
-    <div class="filter-tabs">
-      <button
-        class="tab-btn"
-        [class.tab-active]="activeFilter === 'all'"
-        (click)="activeFilter = 'all'"
-      >
-        Alle
-      </button>
-      <button
-        class="tab-btn"
-        [class.tab-active]="activeFilter === 'active'"
-        (click)="activeFilter = 'active'"
-      >
-        Aktiv
-      </button>
-      <button
-        class="tab-btn"
-        [class.tab-active]="activeFilter === 'done'"
-        (click)="activeFilter = 'done'"
-      >
-        Erledigt
-      </button>
-    </div>
-  </header>
+    <button class="btn btn-primary" (click)="addTodo()">Hinzufügen</button>
+  </div>
 
+  <div class="filter-tabs">
+    <button
+      class="tab-btn"
+      [class.tab-active]="activeFilter === 'all'"
+      (click)="activeFilter = 'all'"
+    >
+      Alle
+    </button>
+    <button
+      class="tab-btn"
+      [class.tab-active]="activeFilter === 'active'"
+      (click)="activeFilter = 'active'"
+    >
+      Aktiv
+    </button>
+    <button
+      class="tab-btn"
+      [class.tab-active]="activeFilter === 'done'"
+      (click)="activeFilter = 'done'"
+    >
+      Erledigt
+    </button>
+  </div>
+</header>
+
+<main class="content-container">
   <ul class="todo-list">
     <li
-      *ngFor="let todo of filteredTodos; trackBy: trackById"
+      *ngFor="let todo of filteredTodos; let i = index"
       class="todo-item"
       [class.todo-done]="todo.done"
     >
@@ -57,7 +56,7 @@
         type="checkbox"
         class="todo-checkbox"
         [checked]="todo.done"
-        (change)="todoService.toggle(todo.id)"
+        (change)="todoService.toggle(i)"
       />
 
       <span class="todo-title">{{ todo.title }}</span>
@@ -68,11 +67,11 @@
 
       <span class="due-date">{{ todo.dueDate }}</span>
 
-      <button class="btn btn-danger" (click)="todoService.delete(todo.id)">
+      <button class="btn btn-danger" (click)="todoService.delete(i)">
         Löschen
       </button>
     </li>
   </ul>
 
-  <button class="btn btn-secondary" (click)="todoService.clearAll()">Liste leeren</button>
-</div>
+  <button class="btn btn-danger clear-btn" (click)="todoService.clearAll()">Liste leeren</button>
+</main>

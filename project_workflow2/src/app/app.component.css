@@ -1,14 +1,21 @@
 
 
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .add-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
+  flex: 0 0 auto;
   background: #ffffff;
-  padding: 20px 24px 14px;
+  padding: 20px;
+  border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
 }
 
 .app-title {
@@ -24,11 +31,11 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 14px;
+  flex-wrap: wrap;
 }
 
-.input-field,
-input[type="date"],
-select {
+.input-field {
+  flex: 1;
   padding: 10px 14px;
   border: 1.5px solid #d1d5db;
   border-radius: 8px;
@@ -36,36 +43,11 @@ select {
   font-family: inherit;
   outline: none;
   transition: border-color 0.2s;
+  min-width: 120px;
 }
 
-.input-field:focus,
-input[type="date"]:focus,
-select:focus {
+.input-field:focus {
   border-color: #6366f1;
-}
-
-.input-field {
-  flex: 1;
-}
-
-@media (max-width: 520px) {
-  .input-row {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  
-  .input-field {
-    flex: 1 1 100%;
-  }
-
-  input[type="date"],
-  select {
-    flex: 1 1 calc(50% - 4px);
-  }
-
-  .btn-primary {
-    flex: 1 1 100%;
-  }
 }
 
 
@@ -88,6 +70,15 @@ select:focus {
 
 .btn-primary:hover {
   background: #4f46e5;
+}
+
+.btn-secondary {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.btn-secondary:hover {
+  background: #d1d5db;
 }
 
 .filter-tabs {
@@ -113,14 +104,12 @@ select:focus {
   border-color: #6366f1;
 }
 
-.content-container {
-  padding: 160px 20px 20px;
-}
-
 .todo-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 20px;
+  margin: 0;
+  flex: 1 1 auto;
+  overflow-y: auto;
 }
 
 .todo-item {
@@ -130,6 +119,9 @@ select:focus {
   padding: 14px 20px;
   border-bottom: 1px solid #f3f4f6;
   background: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
 }
 
 .todo-item.todo-done .todo-title {
@@ -145,10 +137,12 @@ select:focus {
 }
 
 .todo-title {
+  white-space: normal;
+  word-break: break-all;
   font-size: 0.95rem;
   color: #374151;
   flex: 1;
-  word-break: break-word;
+  min-width: 100px;
 }
 
 .priority-badge {
@@ -200,32 +194,3 @@ select:focus {
   background: #dc2626;
 }
 
-.clear-btn {
-  margin-top: 10px;
-}
-
-@media (max-width: 520px) {
-  .todo-item {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  
-  .todo-checkbox {
-    order: 0;
-  }
-
-  .todo-title {
-    order: 1;
-    flex: 1 1 100%;
-  }
-
-  .priority-badge,
-  .due-date {
-    order: 2;
-  }
-  
-  .btn-danger {
-    order: 3;
-    width: 100%;
-  }
-}
