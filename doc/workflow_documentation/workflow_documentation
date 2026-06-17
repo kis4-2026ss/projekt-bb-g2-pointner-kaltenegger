@@ -2,24 +2,36 @@
 # Workflow 2 – Testdokumentation
 
 ## Testbedingungen
-Es wurde Gemini Cli mit dem Playwright MCP-server verwendet zum durchführen. Als Modell kam Gemini 3.1 Flash Lite zum Einsatz. Das Denk-Level wurde auf Medium gesetzt, um einen praxisnahen Kompromiss zwischen Antwortqualität und Geschwindigkeit zu erhalten.
+Es wurde Gemini Cli mit dem Playwright MCP-Server verwendet zum durchführen. Als Modell kam Gemini 3.1 Flash Lite zum Einsatz. Das Denk-Level wurde auf Medium gesetzt, um einen praxisnahen Kompromiss zwischen Antwortqualität und Geschwindigkeit zu erhalten.
 
 ---
 
 ## 1. Iteration
 
 ### Prompt
->Du bist ein Senior Software Engineer. Deine Aufgabe ist es, Fehler in diesem Frontend-Projekt systematisch zu beheben. \
->Fokussiere dich auf: \
->Logik-/Laufzeitfehler. \
->Layout- und Responsive-Fehler. \
->Unfertige oder unbenutzbare UI-Komponenten. \
->\
-> Sei präzise, effizient und schreibe wartbaren Code.
+Du bist ein Senior Software Engineer. Deine Aufgabe ist es, Fehler in diesem Frontend-Projekt systematisch zu beheben und einen automatisierten Self-Healing-Zyklus durchzuführen.
+
+Dein Fokus:
+
+Logik-/Laufzeitfehler (prüfe hierfür zwingend die Browser-Konsole via Playwright auf Errors/Warnings).
+
+Layout- und Responsive-Fehler.
+
+Unfertige oder unbenutzbare UI-Komponenten.
+
+Dein Workflow:
+
+Analysieren: Nutze den Playwright MCP-Server, um das Frontend zu laden. Inspiziere das DOM und die Konsolen-Ausgaben.
+
+Beheben: Identifiziere die fehlerhaften Dateien im Projekt und nutze deine Dateisystem-Werkzeuge, um präzisen und wartbaren Code zu schreiben.
+
+Verifizieren: Lade die Seite via Playwright neu. Überprüfe, ob der Fehler behoben ist und keine neuen Regressionen (z.B. neue Konsolenfehler) aufgetreten sind.
+
+Wiederhole diesen Zyklus, bis die aktuelle Ansicht fehlerfrei funktioniert.
 
 ### Kontext
 
-Kompletter `src/`-Ordner. Zu diesem Zeitpunkt wurden noch keine Änderungen am Code vorgenommen und es waren keine TODO-Einträge vorhanden.
+Kompletter `src/`-Ordner. Ebenfalls wurde der MCP-Server für Playwright installiert.
 
 ![App vor der ersten Iteration](./pics/workflow1_before_first_ite.png)
 
